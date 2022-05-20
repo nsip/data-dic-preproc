@@ -3,13 +3,13 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
 
+	fd "github.com/digisan/gotk/filedir"
 	gio "github.com/digisan/gotk/io"
 	"github.com/digisan/gotk/strs"
 	jt "github.com/digisan/json-tool"
@@ -34,7 +34,7 @@ func FixFilename(datadir, odir string) {
 			if err != nil {
 				log.Fatalln(err)
 			}
-			fmt.Println("reading...", fpath)
+			lk.Log("reading...  %s", fpath)
 
 			entity := gjson.Get(string(data), "Entity").String()
 			fname := entity + ".json"
@@ -42,7 +42,9 @@ func FixFilename(datadir, odir string) {
 				odir = strs.SplitPartFromLast(fpath, "/", 2)
 			}
 			fpathNew := filepath.Join(odir, fname)
-			fmt.Println("destination...", fpathNew)
+			lk.Log("destination...  %s", fpathNew)
+
+			lk.FailOnErrWhen(fd.FileExists(fpathNew), "%v", fmt.Errorf("[%s] is already existing", fpathNew))
 
 			// copy
 			if err = os.WriteFile(fpathNew, data, os.ModePerm); err != nil {
@@ -85,10 +87,10 @@ func escQuInHTML(ori string) string {
 func fixErrComma(s string) string {
 	r := regexp.MustCompile(`,\s*[\}\]]`)
 	spanList := r.FindAllStringIndex(s, -1)
-	for _, span := range spanList {
-		b, e := span[0], span[1]
-		fmt.Println(s[b:e])
-	}
+	// for _, span := range spanList {
+	// 	b, e := span[0], span[1]
+	// 	fmt.Println(s[b:e])
+	// }
 	spanls := [][2]int{}
 	for _, span := range spanList {
 		spanls = append(spanls, [2]int{span[0], span[1] - 1})
@@ -112,22 +114,23 @@ func rmPtag(ori string) string {
 	return ori
 }
 
-func Preproc(datadir, odir, edir string) {
-	filepath.Walk(datadir, func(path string, info fs.FileInfo, err error) error {
-		if strings.HasSuffix(path, ".json") {
+func Preproc(datadir, odir, edir string) error {
 
-			// pathExe, err := os.Executable()
-			// lk.FailOnErr("%v", err)
-			// lk.Log("%v", pathExe)
+	files, err := os.ReadDir(datadir)
+	if err != nil {
+		return err
+	}
 
-			lk.Log("processing...  %v", path)
+	for _, f := range files {
+		if fpath := filepath.Join(datadir, f.Name()); strings.HasSuffix(fpath, ".json") {
+			lk.Log("processing...  %v", fpath)
 
-			data, err := os.ReadFile(path)
+			data, err := os.ReadFile(fpath)
 			if err != nil {
 				return err
 			}
 			if len(data) == 0 {
-				return nil
+				continue
 			}
 
 			data = rmLF(data)
@@ -137,20 +140,20 @@ func Preproc(datadir, odir, edir string) {
 
 			if !jt.IsValid(data) {
 				gio.MustCreateDir(edir)
-				outname := filepath.Base(path)
+				outname := filepath.Base(fpath)
 				out := filepath.Join(edir, outname)
 				os.WriteFile(out, data, os.ModePerm)
-				lk.FailOnErr("%v", fmt.Errorf("json error@ %s", path))
+				lk.FailOnErr("%v", fmt.Errorf("json error@ %s", fpath))
 			}
 
 			// save
 			gio.MustCreateDir(odir)
-			outname := filepath.Base(path)
+			outname := filepath.Base(fpath)
 			out := filepath.Join(odir, outname)
 			os.WriteFile(out, data, os.ModePerm)
 
 			lk.Log("%s is processed & stored", out)
 		}
-		return nil
-	})
+	}
+	return nil
 }
