@@ -1,0 +1,51 @@
+{
+"Entity": "Year level",
+"Definition": "<p>Level of school education that the student attends.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/MostRecent/YearLevel/Code",
+      "/StudentSchoolEnrollment/YearLevel/Code"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Year or academic level of student."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "IMS One Roster",
+    "Link": [
+      "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/rostering-informationmodel/OneRosterv1p2RosteringService_InfoModelv1p0.html#DataAttribute_User_grades"
+    ],
+    "Path": [
+      "User.grades"
+    ],
+    "Definition": "Grade(s) for which a user with role 'student' is enrolled. The permitted vocabulary should be defined as part of the adoption and deployment process."
+  }
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/MostRecent/YearLevel/Code"
+    ],
+    "Commentary": "The student's current year level.  Note: For NAPLAN Online purposes, valid “Year Level” values are 3,5,7,9, UG."
+  }
+],
+"Metadata": {
+"Identifier": "003030",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+],
+"CrossrefEntities": [
+]
+}
+}
+

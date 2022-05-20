@@ -1,0 +1,10 @@
+{
+"Entity": "Name",
+"Definition": "<p>The name of an entity.</p>",
+"Metadata": {
+"Identifier": "0006",
+"Type": "Abstract Element",
+"DefaultParent": [],
+"Superclass": []
+}
+}

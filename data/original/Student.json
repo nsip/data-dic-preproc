@@ -1,0 +1,16 @@
+{
+"Entity": "Student",
+"Definition": "<p>A student.</p>", 
+"Metadata": {
+"Identifier": "0004",
+"Type": "Abstract Element",
+"DefaultParent": [],
+"Superclass": ["Person"],
+"ExpectedAttributes": [
+  "Student Identifier",
+  "Person.FamilyName",
+  "Person.GivenName",
+  "Person.MiddleName"
+]
+}
+}

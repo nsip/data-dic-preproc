@@ -1,0 +1,84 @@
+{
+  "Entity": "Campus",
+  "OtherNames": [
+    "Location"
+  ],
+  "Definition": "<p>A geographically distinct locations within a <A href='School'>school</A> from which education is offered. In some collections, campuses of the same school are treated as distinct schools.</p>",
+  "SIF": [
+    {
+      "XPath": [
+        "/SchoolInfo"
+      ],
+      "Datestamp": "Latest version: 3.4.9, 2021-11-",
+      "Definition": "This object contains information about the school or campus."
+    }
+  ],
+  "OtherStandards": [
+    {
+      "Standard": "IMS One Roster",
+      "Link": [],
+      "Path": [
+        "/School"
+      ],
+      "Definition": "",
+      "Commentary": "The parent school for a campus can be modelled through the link /School/Parent. However, the campus usually will not feature as an entity in IMS One Roster use cases: IMS One Roster presupposes deployment within a single education institution, but is not concerned with geographical location of course delivery."
+    },
+    {
+      "Standard": "IMS LTI",
+      "Link": [],
+      "Path": [],
+      "Definition": "",
+      "Commentary": "Not modelled. LTI presupposes deployment within a single education institution, and is not concerned with geographical location of course delivery."
+    },
+    {
+      "Standard": "Google Classroom",
+      "Link": [],
+      "Path": [],
+      "Definition": "",
+      "Commentary": "Not modelled. Google Classroom presupposes deployment within a single education institution, and is not concerned with geographical location of course delivery."
+    }
+  ],
+  "LegalDefinitions": [
+    {
+      "LegislationName": "Education Act 2013",
+      "Citation": "§18",
+      "Link": "http://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/cth/consol_act/aea2013210/s6.html",
+      "Datestamp": "2020-12-01",
+      "Definition": "<p>Minister to make determinations in relation to locations of schools <ol><li>This section applies if a school has more than one location.</li> <li>The Minister may, in writing, determine the location of the school for the purposes of working out the school's ARIA index value.</li> <li>If not all locations of the school are in the same State or Territory, the Minister may, in writing, determine which State or Territory the school is located in.</li> <li>For the purposes of this Act, a determination under subsection (2) or (3) has effect according to its terms.</li> <li>A determination under subsection (2) or (3) is not a legislative instrument.</li></ol></p>",
+    "Commentary": "This means that for the purpose of determining funding for a school, a single location is picked among the school campuses."
+    },
+    {
+      "LegislationName": "Education Act 2013",
+      "Citation": "§55",
+      "Link": "http://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/cth/consol_act/aea2013210/s55.html",
+      "Datestamp": "2020-12-01",
+      "Definition": "<p>For the purposes of this Part, and any other provision of this Act to the extent that it relates to this Part, a reference to a school includes a location of the school only if: <ol><li>the location is specified in the approval of the approved authority for the school; and</li> <li>the level of education provided by the school at that location is specified in that approval.</li></ol></p>"
+    }
+  ],
+  "Collections": [
+    {
+      "Name": "Australian Government Address Collection",
+      "Description": "Primary subject matter of collection.",
+      "Standard": "SIF-AU",
+      "Elements": [
+        "/AddressCollection/AddressCollectionReportingList/AddressCollectionReporting/CommonwealthId",
+        "/AddressCollection/AddressCollectionReportingList/AddressCollectionReporting/EntityName",
+        "/AddressCollection/AddressCollectionReportingList/AddressCollectionReporting/EntityContact"
+      ],
+      "DefinitionModification": "Per Education Act: Distance-Education–only schools not counted. Campuses of the same school are treated as distinct schools for the collection (since the purpose of the collection is to determine the socioeconomic status of the school on a geographical basis.)"
+    }
+  ],
+  "Metadata": {
+  "Identifier": "0003",
+  "Type": "Object",
+  "ExpectedAttributes": [
+    "School Name",
+    "AGE ID (old)",
+    "Address"
+  ],
+  "Superclass": [
+    "School"
+  ],
+  "CrossrefEntities": []
+  }
+}

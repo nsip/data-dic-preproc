@@ -1,0 +1,41 @@
+{
+"Entity": "TAA Student Identifier",
+"Definition": "<p>Identifier assigned to a student by a test administration authority.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'TAAStudentId']"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Lists an 'other' identifier associated with the entity."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'TAAStudentId']"
+    ],
+    "Commentary": "An identifier assigned by and used by TAA for NAPLAN processing."
+  }
+],
+"Metadata": {
+"Identifier": "003025",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+]
+}
+}
+

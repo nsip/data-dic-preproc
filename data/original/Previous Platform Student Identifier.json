@@ -1,0 +1,42 @@
+{
+"Entity": "Previous Platform Student Identifier",
+"Definition": "<p>Obsolete Iidentifier assigned to a student by the National Assessment Platform.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'PreviousNAPPlatformStudentId']"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Lists an 'other' identifier associated with the entity."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'PreviousNAPPlatformStudentId']"
+    ],
+    "Commentary": "Previous assessment platform student identifier."
+  }
+],
+"Metadata": {
+"Identifier": "0030216",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+  "Platform Student Identifier"
+]
+}
+}
+

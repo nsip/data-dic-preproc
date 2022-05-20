@@ -1,0 +1,57 @@
+{
+"Entity": "Language spoken at home",
+"Definition": "<p>Language that an individual speaks at home.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/PersonInfo/Demographics/LanguageList/Language[LanguageType = '4']/Code",
+      "/StudentContactPersonal/PersonInfo/Demographics/LanguageList/Language[LanguageType = '4']/Code",
+      "/StaffPersonal/PersonInfo/Demographics/LanguageList/Language[LanguageType = '4']/Code",
+      "/StudentPersonal/MostRecent/Parent1Language",
+      "/StudentPersonal/MostRecent/Parent2Language"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "The code representing the specific language that an individual uses to communicate. LanguageType = 4: Language Spoken at Home"
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "Language background other than English",
+    "Link": [
+      "https://www.acara.edu.au/docs/default-source/default-document-library/data-standards-manual---student-background-characteristics---2022-edition561c2f404c94637ead88ff00003e0139.pdf?sfvrsn=e5884c07_0"
+    ],
+    "Path": [
+      "Language other than English spoken at home"
+    ],
+    "Definition": "<p>‘Language other than English spoken at home’ is defined as the language other than English, spoken in the home by the respondent.  If the respondent speaks more than one language other than English at home report the language other than English the respondent speaks most often.  Information is to be sought in relation to the student, parent1 and parent2</p>"
+  }
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/PersonInfo/Demographics/LanguageList/Language[LanguageType = '4']/Code",
+      "/StudentPersonal/MostRecent/Parent1Language",
+      "/StudentPersonal/MostRecent/Parent2Language"
+    ],
+    "Commentary": "Main Language spoken at home when not English speaking. (In SIF, this specific type of language is LanguageType = 2 rather than LanguageType = 4. Collected for both student and parents/guardians."
+  }
+],
+"Metadata": {
+"Identifier": "003029",
+"Type": "Element",
+"DefaultParent": [
+  "Person"
+],
+"Superclass": [
+],
+"CrossrefEntities": [
+  "Language Background Other Than English"
+]
+}
+}
+

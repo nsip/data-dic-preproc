@@ -1,0 +1,41 @@
+{
+"Entity": "National Student Identifier",
+"Definition": "<p>Identifier assigned to a student by the national agency, and intended to identify the student uniquely nationally.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/NationalUniqueStudentIdentifier"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "The Commonwealth-assigned National Unique Student Identifier (USI) for this student."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'NationalStudentId']"
+    ],
+    "Commentary": "Placeholder for a Nationally persistent Student Identifier."
+  }
+],
+"Metadata": {
+"Identifier": "003027",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+]
+}
+}
+

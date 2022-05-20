@@ -1,0 +1,16 @@
+{
+"Entity": "Staff",
+"Definition": "<p>A staff member.</p>", 
+"Metadata": {
+"Identifier": "0010",
+"Type": "Abstract Element",
+"DefaultParent": [],
+"Superclass": ["Person"],
+"ExpectedAttributes": [
+  "Staff Identifier",
+  "Person.FamilyName",
+  "Person.GivenName",
+  "Person.MiddleName"
+]
+}
+}

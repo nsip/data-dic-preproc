@@ -1,0 +1,41 @@
+{
+"Entity": "Diocesan Student Identifier",
+"Definition": "<p>Identifier assigned to a student by a diocese or equivalent religious jurisdiction.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'DiocesanStudentId']"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Lists an 'other' identifier associated with the entity."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/OtherIdList/OtherId[@Type = 'DiocesanStudentId']"
+    ],
+    "Commentary": "A student identifier applied by a diocese."
+  }
+],
+"Metadata": {
+"Identifier": "003023",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+]
+}
+}
+

@@ -1,0 +1,10 @@
+{
+"Entity": "School Identifier",
+"Definition": "<p>The identifier of a school.</p>", 
+"Metadata": {
+"Identifier": "0018",
+"Type": "Abstract Element",
+"DefaultParent": ["School"],
+"Superclass": ["Organisation Identifier"]
+}
+}

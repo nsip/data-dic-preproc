@@ -1,0 +1,10 @@
+{
+"Entity": "Organisation Name",
+"Definition": "<p>The name of an organisation.</p>", 
+"Metadata": {
+"Identifier": "0021",
+"Type": "Abstract Element",
+"DefaultParent": ["Organisation"],
+"Superclass": ["Name"]
+}
+}
