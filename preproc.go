@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 
 	fd "github.com/digisan/gotk/filedir"
@@ -15,6 +16,7 @@ import (
 	jt "github.com/digisan/json-tool"
 	lk "github.com/digisan/logkit"
 	"github.com/tidwall/gjson"
+	"github.com/tidwall/sjson"
 )
 
 // make sure each file's name is its entity value
@@ -114,6 +116,17 @@ func rmPtag(ori string) string {
 	return ori
 }
 
+func padIdentifier(ori string, idLen int) string {
+	idstr := gjson.Get(ori, "Metadata.Identifier").String()
+	id, err := strconv.ParseUint(idstr, 10, 64)
+	lk.FailOnErr("%v", err)
+	idfmt := fmt.Sprintf("%%0%dd", idLen)
+	idstr = fmt.Sprintf(idfmt, id)
+	rt, err := sjson.Set(ori, "Metadata.Identifier", idstr)
+	lk.FailOnErr("%v", err)
+	return rt
+}
+
 func Preproc(datadir, odir, edir string) error {
 
 	files, err := os.ReadDir(datadir)
@@ -145,6 +158,8 @@ func Preproc(datadir, odir, edir string) error {
 				os.WriteFile(out, data, os.ModePerm)
 				lk.FailOnErr("%v", fmt.Errorf("json error@ %s", fpath))
 			}
+
+			data = []byte(padIdentifier(string(data), 8))
 
 			// save
 			gio.MustCreateDir(odir)
