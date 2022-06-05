@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 
 	fd "github.com/digisan/gotk/filedir"
+	gio "github.com/digisan/gotk/io"
 	lk "github.com/digisan/logkit"
 )
 
@@ -26,11 +27,11 @@ func init() {
 
 // 	dirOri, dirRn := *dirOriPtr, *dirRnPtr
 
-// 	// renamed file
+// 	// clear destination dir for putting renamed file
 // 	lk.FailOnErr("%v", fd.RmFilesIn(dirRn, false, true, "json"))
 
 // 	// make sure each file's name is its entity value
-// 	FixFilename(dirOri, dirRn)
+// 	FixFileName(dirOri, dirRn)
 // }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -63,4 +64,15 @@ func main() {
 	lk.FailOnErr("%v", err)
 
 	lk.FailOnErr("%v", os.WriteFile(filepath.Join(out, "class-link.json"), []byte(js), os.ModePerm))
+
+	/////////////////////////////////////////////////////////////////////
+
+	osdir := filepath.Join(out, "path_val")
+	gio.MustCreateDir(osdir)
+	fpaths, _, err := fd.WalkFileDir(out, false)
+	lk.FailOnErr("%v", err)
+	for entity, js := range GenEntityPathVal(fpaths...) {
+		lk.FailOnErr("%v", os.WriteFile(filepath.Join(osdir, entity+".json"), []byte(js), os.ModePerm))
+	}
+
 }

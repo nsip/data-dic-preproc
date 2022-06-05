@@ -20,7 +20,7 @@ import (
 )
 
 // make sure each file's name is its entity value
-func FixFilename(datadir, odir string) {
+func FixFileName(datadir, odir string) {
 
 	files, err := os.ReadDir(datadir)
 	if err != nil {
@@ -127,6 +127,7 @@ func padIdentifier(ori string, idLen int) string {
 	return rt
 }
 
+// datadir: data-dir; odir: out-dir; edir: err-dir
 func Preproc(datadir, odir, edir string) error {
 
 	files, err := os.ReadDir(datadir)

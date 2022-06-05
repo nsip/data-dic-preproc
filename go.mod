@@ -3,10 +3,10 @@ module github.com/nsip/data-dic-preproc
 go 1.18
 
 require (
-	github.com/digisan/go-generics v0.1.10
-	github.com/digisan/gotk v0.1.10
-	github.com/digisan/json-tool v0.1.1
-	github.com/digisan/logkit v0.0.8
+	github.com/digisan/go-generics v0.1.14
+	github.com/digisan/gotk v0.1.15
+	github.com/digisan/json-tool v0.1.2
+	github.com/digisan/logkit v0.0.9
 	github.com/tidwall/gjson v1.14.1
 	github.com/tidwall/sjson v1.2.4
 )

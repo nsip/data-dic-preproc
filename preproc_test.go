@@ -8,8 +8,8 @@ import (
 	"testing"
 )
 
-func TestFixFilename(t *testing.T) {
-	FixFilename("./data/original", "./data")
+func TestFixFileName(t *testing.T) {
+	FixFileName("./data/original", "./data")
 }
 
 func TestPreproc(t *testing.T) {
