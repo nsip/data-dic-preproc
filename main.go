@@ -1,15 +1,22 @@
 package main
 
 import (
+	"errors"
 	"flag"
+	"os"
+	"path/filepath"
+	"strings"
 
+	. "github.com/digisan/go-generics/v2"
 	fd "github.com/digisan/gotk/filedir"
-	// gio "github.com/digisan/gotk/io"
+	gio "github.com/digisan/gotk/io"
 	lk "github.com/digisan/logkit"
+	"github.com/tidwall/gjson"
 )
 
 func init() {
 	lk.Log2F(true, "./preproc.log")
+	lk.WarnDetail(false)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -19,17 +26,59 @@ func init() {
 //
 func main() {
 
-	dirOriPtr := flag.String("od", "./data/original", "original json data directory")
-	dirRnPtr := flag.String("rd", "./data", "renamed json data directory")
+	var (
+		dirOriEntPtr = flag.String("oed", "./data/original", "original entities json data directory")
+		dirOriColPtr = flag.String("ocd", "./data/original/collections", "original collections json data directory")
+		dirRnEntPtr  = flag.String("red", "./data/renamed", "renamed entities json data directory")
+		dirRnColPtr  = flag.String("rcd", "./data/renamed/collections", "renamed collections json data directory")
+	)
+
 	flag.Parse()
 
-	dirOri, dirRn := *dirOriPtr, *dirRnPtr
+	//////////////////////////////////////////////////////////////
+
+	dirOriEnt, dirRnEnt := *dirOriEntPtr, *dirRnEntPtr
+
+	gio.MustCreateDir(dirRnEnt)
 
 	// clear destination dir for putting renamed file
-	lk.FailOnErr("%v", fd.RmFilesIn(dirRn, false, true, "json"))
+	lk.FailOnErr("%v", fd.RmFilesIn(dirRnEnt, false, true, "json"))
 
 	// make sure each file's name is its entity value
-	FixFileName(dirOri, dirRn)
+	FixFileName(dirOriEnt, dirRnEnt)
+
+	//////////////////////////////////////////////////////////////
+
+	dirOriCol, dirRnCol := *dirOriColPtr, *dirRnColPtr
+
+	gio.MustCreateDir(dirRnCol)
+
+	// clear destination dir for putting renamed file
+	lk.FailOnErr("%v", fd.RmFilesIn(dirRnCol, false, true, "json"))
+
+	// make sure each file's name is its entity value
+	FixFileName(dirOriCol, dirRnCol)
+
+	// <------------------------------------------------------------------------------------->
+
+	mChk := map[string][]string{
+		dirRnEnt: {"Element", "Object", "Abstract Element"},
+		dirRnCol: {"Collection"},
+	}
+
+	for _, dir := range []string{dirRnEnt, dirRnCol} {
+		fs, err := os.ReadDir(dir)
+		lk.FailOnErr("%v", err)
+		for _, f := range fs {
+			if fname := f.Name(); strings.HasSuffix(fname, ".json") {
+				fpath := filepath.Join(dir, fname)
+				data, err := os.ReadFile(fpath)
+				lk.FailOnErr("%v", err)
+				lk.WarnOnErrWhen(NotIn(gjson.Get(string(data), "Metadata.Type").String(), mChk[dir]...), "%v@%s", errors.New("ERROR TYPE"), fpath)
+			}
+		}
+	}
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
