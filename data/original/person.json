@@ -1,0 +1,16 @@
+{
+"Entity": "Person",
+"Definition": "<p>A person. Includes any person represented for education data exchange.</p>", 
+"Metadata": {
+"Identifier": "0015",
+"Type": "Abstract Element",
+"DefaultParent": [],
+"Superclass": [],
+"ExpectedAttributes": [
+  "Person Identifier",
+  "Person.FamilyName",
+  "Person.GivenName",
+  "Person.MiddleName"
+]
+}
+}

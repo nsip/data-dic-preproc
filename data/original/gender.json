@@ -1,0 +1,61 @@
+{
+"Entity": "Gender",
+"Definition": "<p>The gender of an individual, as self-determined by them. Definition has shifted from earlier use of biological sex nationally, as reflected in the ACARA Data Standards Manual.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/PersonInfo/Demographics/Sex",
+      "/StaffPersonal/PersonInfo/Demographics/Sex",
+      "/StudentContactPersonal/PersonInfo/Demographics/Sex"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "'Sex' is the distinction 'male'/'female'/'intersex', as reported by the person."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "IMS One Roster",
+    "Link": [
+      "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/rostering-informationmodel/OneRosterv1p2RosteringService_InfoModelv1p0.html#DataAttribute_Demographics_sex"
+    ],
+    "Path": [
+      "/Demographics/sex"
+    ],
+    "Definition": "The sex of the individual. The permitted values are from an enumerated list."
+  },
+  {
+    "Standard": "ACARA Data Standards Manual",
+    "Link": [
+      "https://www.acara.edu.au/docs/default-source/default-document-library/data-standards-manual---student-background-characteristics---2022-edition561c2f404c94637ead88ff00003e0139.pdf?sfvrsn=e5884c07_0"
+    ],
+    "Path": [
+      "Gender"
+    ],
+    "Definition": "Gender is a social and cultural concept. It is about social and cultural differences in identity, expression and experience as a male, female or non-binary person. Non- binary is an umbrella term describing gender identities that are not exclusively male or female.",
+    "Commentary": "While the Australian Education Regulation 2013 specifies sex as a student characteristic, this Manual is being updated to collect gender in order to align with current practice."
+  }
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/PersonInfo/Demographics/Sex"
+    ],
+    "Commentary": "The student's sex."
+  }
+],
+"Metadata": {
+"Identifier": "0025",
+"Type": "Element",
+"DefaultParent": [
+  "Person"
+],
+"Superclass": [
+]
+}
+}
+

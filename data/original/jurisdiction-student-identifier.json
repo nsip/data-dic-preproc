@@ -1,0 +1,41 @@
+{
+"Entity": "Jurisdiction Student Identifier",
+"Definition": "<p>Identifier assigned to a student by a jurisdiction, such as a state department of education.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/StateProvinceId"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "The state-assigned identifier for this student."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/StateProvinceId"
+    ],
+    "Commentary": "An identifier which is applied state wide. Persistent Jurisdiction Student Identifier e.g. VSN for VIC; in this case, the Id may be only for the purposes of NAPLAN."
+  }
+],
+"Metadata": {
+"Identifier": "003026",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+]
+}
+}
+

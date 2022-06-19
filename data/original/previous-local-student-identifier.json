@@ -1,0 +1,42 @@
+{
+"Entity": "Previous Local Student Identifier",
+"Definition": "<p>Obsolete identifier assigned to a student by a school or other organisation with limited scope.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/OtherIds/OtherId[@Type = 'PreviousLocalSchoolStudentId']"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Lists an 'other' identifier associated with the entity."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/OtherIds/OtherId[@Type = 'PreviousLocalSchoolStudentId']"
+    ],
+    "Commentary": "Previous local student id assigned by and used by local school administrative system."
+  }
+],
+"Metadata": {
+"Identifier": "003029",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+  "Local Student Identifier"
+]
+}
+}
+

@@ -1,0 +1,96 @@
+{
+"Entity": "School Name",
+"Definition": "<p>The current legal name of the school.</p> <p>In case there are shorter and longer variants of the school name, the less formal or abbreviated variants should not be used; for example, Melbourne High School, not Melbourne High.</p> <p>Historical names of the school are not covered by this element.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/SchoolInfo/SchoolName"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Name of school/campus."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "IMS One Roster",
+    "Link": [
+      "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/rostering-informationmodel/OneRosterv1p2RosteringService_InfoModelv1p0.html#DataAttribute_Org_name"
+    ],
+    "Path": [
+      "/School/Name",
+      "/Org/Name"
+    ],
+    "Definition": "The name of the organization."
+  },
+  {
+    "Standard": "IMS LTI",
+    "Link": [],
+    "Path": [],
+    "Definition": "",
+    "Commentary": "Not modelled."
+  },
+  {
+    "Standard": "Google Classroom",
+    "Link": [],
+    "Path": [],
+    "Definition": "",
+    "Commentary": "Not modelled."
+  }  
+],
+"LegalDefinitions": [
+  {
+    "LegislationName": "Policy and Advisory Library, Victorian Department of Education",
+    "Link": "https://www2.education.vic.gov.au/pal/school-and-campus-naming/policy",
+    "Datestamp": "2020-12-01",
+    "Commentary": "Policies for new naming and name changes of schools. Similar policies apply at each state"
+  }
+],
+"Collections": [
+  {
+    "Name": "Australian Government Financial Questionnaire Collection",
+    "Description": "Primary subject matter of collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/FinancialQuestionnaireCollection/FQReportingList/FQReporting/EntityName"
+    ]
+  },
+  {
+    "Name": "Australian Government Address Collection",
+    "Description": "Primary subject matter of collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/AddressCollection/AddressCollectionReportingList/AddressCollectionReporting/EntityName"
+    ]
+  },
+  {
+    "Name": "Australian Government Census Collection",
+    "Description": "Primary subject matter of collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/CensusCollection/CensusCollectionReportingList/CensusCollectionReporting/EntityName"
+    ]
+  },
+  {
+    "Name": "Australian Government Student Attendance Collection",
+    "Description": "Primary subject matter of collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentAttendanceCollection/StudentAttendanceCollectionReportingList/StudentAttendanceCollectionReporting/EntityName"
+    ]  },
+  {
+    "Name": "Australian Charities and Not-For-Profits Commission Registration",
+    "Description": "Primary subject matter of collection.",
+    "Commentary": "Requires legal name, but also allows 'other names your organisation is known by'."
+  }
+],
+"Metadata": {
+"Identifier": "0005",
+"Type": "Element",
+"DefaultParent": [
+  "School"
+],
+"Superclass": [
+  "Organisation Name"
+]
+}
+}

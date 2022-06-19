@@ -1,0 +1,123 @@
+{
+"Entity": "Person.GivenName",
+"Definition": "<p>The given name of an individual, typically distinct from that of other immediate family members of the same generation. First name in Western naming traditions.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/PersonInfo/Name/GivenName",
+      "/StudentPersonal/PersonInfo/OtherNames/OtherName/GivenName",
+      "/StaffPersonal/PersonInfo/Name/GivenName",
+      "/StaffPersonal/PersonInfo/OtherNames/OtherName/GivenName",
+      "/StudentContactPersonal/PersonInfo/Name/GivenName",
+      "/StudentContactPersonal/PersonInfo/OtherNames/OtherName/GivenName",
+      "/StudentPersonal/PersonInfo/Name/PreferredGivenName",
+      "/StudentPersonal/PersonInfo/OtherNames/OtherName/PreferredGivenName",
+      "/StaffPersonal/PersonInfo/Name/PreferredGivenName",
+      "/StaffPersonal/PersonInfo/OtherNames/OtherName/PreferredGivenName",
+      "/StudentContactPersonal/PersonInfo/Name/PreferredGivenName",
+      "/StudentContactPersonal/PersonInfo/OtherNames/OtherName/PreferredGivenName"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "GivenName: Given name of the person. Note that this element is required if known. However, it may not be possible to know the given name in which case you should add the available information to the FullName element.  PreferredGivenName: The given name preferred most by the person (as written)."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "IMS One Roster",
+    "Link": [
+      "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/rostering-informationmodel/OneRosterv1p2RosteringService_InfoModelv1p0.html#Data_User"
+    ],
+    "Path": [
+      "/User/givenName",
+      "/Student/givenName",
+      "/Teacher/givenName",
+      "/User/preferredFirstName",
+      "/Student/preferredFirstName",
+      "/Teacher/preferredFirstName"
+    ],
+    "Definition": "The given name. Also, known as the first name. preferredFirstName is the user's preferred first name."
+  },
+    {
+    "Standard": "Google Classroom",
+    "Link": ["https://developers.google.com/classroom/reference/rest/v1/userProfiles"],
+    "Path": ["UserProfile.name.givenName"],
+    "Definition": "The user's given name.",
+    "Commentary": "Read-only."
+  }],
+"LegalDefinitions": [
+  {
+    "LegislationName": "Births Deaths and Marriages Act 1996 VIC",
+    "Citation": "§22",
+    "Link": "http://www8.austlii.edu.au/cgi-bin/viewdoc/au/legis/vic/consol_act/bdamra1996383/s22.html",
+    "Datestamp": "2020-12-01",
+    "Definition": "<p><ol type='1'><li>The birth registration statement must state the name of the child.</li> <li>However, the Registrar may assign a name to the child if— <ol type='a'><li>the name stated in the birth registration statement is a prohibited name; or</li> <li>the birth registration statement is lodged by both parents of the child and they satisfy the Registrar that they are unable to agree on the child's name.</li></ol></li></ol></p>",
+    "Commentary": "Similar definitions in other state Births Deaths and Marriages Acts"
+  }
+],
+"Collections": [
+  {
+    "Name": "Australian Government Financial Questionnaire Collection",
+    "Description": "Contact person for collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/FinancialQuestionnaireCollection/FQReportingList/FQReporting/EntityContact/Name/GivenName"
+    ],
+    "DefinitionModification": "Per Education Act: Distance-Education–only schools not counted."
+  },
+  {
+    "Name": "Australian Government Address Collection",
+    "Description": "Contact person for collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/AddressCollection/ AddressCollectionReportingList/AddressCollectionReporting/EntityContact/Name/GivenName"
+    ]
+  },
+  {
+    "Name": "Australian Government Census Collection",
+    "Description": "Contact person for collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/CensusCollection/CensusReportingList/CensusReporting/EntityContact/Name/GivenName"
+    ],
+    "DefinitionModification": "Per Education Act: Distance-Education–only schools not counted."
+  },
+  {
+    "Name": "Australian Government Student Attendance Collection",
+    "Description": "Contact person for collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentAttendanceCollection/StudentAttendanceCollectionReportingList/StudentAttendanceCollectionReporting/EntityContact/Name/GivenName"
+    ]
+  },
+  {
+    "Name": "Australian Charities and Not-For-Profits Commission Registration",
+    "Description": "Contact person for collection."
+  },
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/PersonInfo/Name/GivenName",
+      "/StudentPersonal/PersonInfo/Name/PreferredGivenName"
+    ],
+    "Commentary": "The student's given (first) name; PreferredGivenName: The student’s preferred name."
+  }
+],
+"Metadata": {
+"Identifier": "0022",
+"Type": "Element",
+"DefaultParent": [
+  "Person Name"
+],
+"Superclass": [
+  "Person Name"
+],
+"CrossrefEntities": [
+  "Person.FullName",
+  "Person.FamilyName",
+  "Person.MiddleName"
+]
+}
+}
+

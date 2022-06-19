@@ -1,0 +1,10 @@
+{
+"Entity": "Date",
+"Definition": "<p>A date associated with an entity.</p>",
+"Metadata": {
+"Identifier": "0024",
+"Type": "Abstract Element",
+"DefaultParent": [],
+"Superclass": []
+}
+}

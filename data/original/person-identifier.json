@@ -1,0 +1,10 @@
+{
+"Entity": "Person Identifier",
+"Definition": "<p>The identifier of a person.</p>", 
+"Metadata": {
+"Identifier": "0017",
+"Type": "Abstract Element",
+"DefaultParent": ["Person"],
+"Superclass": ["Identifier"]
+}
+}

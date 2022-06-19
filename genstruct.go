@@ -25,6 +25,7 @@ func GenEntityPathVal(fpaths ...string) map[string]string {
 		// make json
 		js := "{"
 		for path, val := range mPathVal {
+			path = strings.ReplaceAll(path, `.`, `[dot]`)
 			val = strings.ReplaceAll(val.(string), `"`, `\"`)
 			js += fmt.Sprintf(`"%s": "%s",`, path, val)
 		}

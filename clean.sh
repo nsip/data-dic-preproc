@@ -7,4 +7,5 @@ rm -rf ./data/out
 rm -rf ./data/err
 rm -rf ./data/original/*.json
 rm -rf ./*.log
-rm -rf ./rename ./preproc
+
+# rm -rf ./rename ./preproc

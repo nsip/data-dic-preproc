@@ -1,0 +1,73 @@
+{
+"Entity": "ACARA ID",
+"Definition": "<p>The unique identifier issued to schools by ACARA for the MySchool site. The identifier pertains to schools and not to campuses of schools.</p> <p>The ACARA ID is published in the <a href='https://asl.acara.edu.au'>Australian Schools List</a>.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/SchoolInfo/ACARAId",
+      "/StudentPersonal/MostRecent/SchoolACARAId"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "ACARA identifier for this school/campus."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "IMS One Roster",
+    "Link": [
+      "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/rostering-informationmodel/OneRosterv1p2RosteringService_InfoModelv1p0.html#DataAttribute_Org_identifier"
+    ],
+    "Path": [
+      "/School/Identifier",
+      "/Org/Identifier"
+    ],
+    "Definition": "Human readable identifier for this org e.g. NCES ID.",
+    "Commentary": "IMS One Roster only allows one identifier for its schools, and that identifier will typically be the local or state identifier, rather than a national identifier, given the use cases One Roster is intended for."
+  },
+  {
+    "Standard": "IMS LTI",
+    "Link": [],
+    "Path": [],
+    "Definition": "",
+    "Commentary": "Not modelled."
+  },
+  {
+    "Standard": "Google Classroom",
+    "Link": [],
+    "Path": [],
+    "Definition": "",
+    "Commentary": "Not modelled."
+  }  
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Registration",
+    "Description": "Primary subject matter of collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/MostRecent/SchoolACARAId"
+    ],
+    "Commentary": "Provided as CSV"
+  },
+  {
+    "Name": "NAPLAN Results and Reporting",
+    "Description": "Primary subject matter of collection.", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/NAPEventStudentLink/SchoolACARAId"
+    ]
+  }
+],
+"Metadata": {
+"Identifier": "0007",
+"Type": "Element",
+"DefaultParent": [
+  "School"
+],
+"Superclass": [
+  "School Identifier"
+]
+}
+}

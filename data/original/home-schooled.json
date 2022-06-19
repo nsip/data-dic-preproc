@@ -1,0 +1,40 @@
+{
+"Entity": "Home-Schooled Student",
+"Definition": "<p>Student receives schooling outside of the school system.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/HomeSchooledStudent"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Student is not attending any school registered in the Australian School List. Mandatory if true."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/HomeSchooledStudent"
+    ],
+    "Commentary": "For Australian students registered as home schooled i.e. NOT attending any ASL school. Some jurisdictions require home schooled students to participate in NAPLAN at a school. ACARA flags these students for statistical reasons."
+  }
+],
+"Metadata": {
+"Identifier": "003041",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+],
+"CrossrefEntities": [
+]
+}
+}
+

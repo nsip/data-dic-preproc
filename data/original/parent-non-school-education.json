@@ -1,0 +1,54 @@
+{
+"Entity": "Parent Non-School Education",
+"Definition": "<p>The highest level of tertiary education a parent/guardian/carer has completed.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/MostRecent/Parent1NonSchoolEducation",
+      "/StudentContactPersonal/NonSchoolEducation",
+      "/StudentPersonal/MostRecent/Parent2NonSchoolEducation"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "This reflects the level of the Contact's Non-School Education."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "ACARA Data Standards Manual",
+    "Link": [
+      "https://www.acara.edu.au/docs/default-source/default-document-library/data-standards-manual---student-background-characteristics---2022-edition561c2f404c94637ead88ff00003e0139.pdf?sfvrsn=e5884c07_0"
+    ],
+    "Path": [
+      "Parental Non-School Education"
+    ],
+    "Definition": "'Parental non-school education' identifies the highest qualification attained by a parent/guardian/carer in any area of study other than school education. Values: 7=Bachelor degree or above, 6=Advanced diploma/Diploma, 5=Certificate I to IV (including trade certificate), 8=No non-school qualification, 0=Not Stated/Unknown.",
+    "Commentary": "Parent/guardian/carers should retain their original designations as Parent 1 and Parent 2 for the duration of the student’s enrolment and upon enrolment of siblings with the same parents at the school unless there is a change of circumstances."
+  }
+  ],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/MostRecent/Parent1NonSchoolEducation",
+      "/StudentPersonal/MostRecent/Parent2NonSchoolEducation"
+    ],
+    "Commentary": "This reflects the level of Parent1/Parent2's Non- School Education."
+  }
+],
+"Metadata": {
+"Identifier": "003045",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+],
+"CrossrefEntities": [
+]
+}
+}
+

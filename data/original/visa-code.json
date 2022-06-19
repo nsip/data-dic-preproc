@@ -1,0 +1,46 @@
+{
+"Entity": "Visa code",
+"Definition": "<p>Code indicating the category of visa under which the individual is permitted to reside in Australia by the Commonwealth.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/PersonInfo/Demographics/VisaSubClass"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "<p>Visa Sub-Class - Can be free text - not necessary to validate.</p>"
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+  {
+    "LegislationName": "Migration Regulations 1993",
+    "Citation": "Reegulation 2.02",
+    "Scope": "Commonweatlh",
+    "Link": "http://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/cth/consol_reg/mr1994227/s2.02.html#subclass",
+    "Datestamp": "2020-12-01",
+    "Definition": "<ol> <li>Schedule 2 is divided into Parts, each identified by the word \"Subclass\" followed by a 3-digit number (being the number of the subclass of visa to which the Part relates) and the title of the subclass.</li> <li>For the purposes of this Part and Schedules 1 and 2, a Part of Schedule 2 is relevant to a particular class of visa if the Part of Schedule 2 is listed under the subitem \"Subclasses\" in the item in Schedule 1 that refers to that class of visa.</li> </ol></p>"
+  }
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/PersonInfo/Demographics/VisaSubClass"
+    ],
+    "Commentary": "Visa codes as per DIAC Refer to: https://www.homeaffairs.gov.au/ Also refer SIF AU Data set 'Visa Sub Class'."
+  }
+],
+"Metadata": {
+"Identifier": "0028",
+"Type": "Element",
+"DefaultParent": [
+  "Person"
+],
+"Superclass": [
+]
+}
+}
+

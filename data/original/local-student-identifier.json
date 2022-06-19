@@ -1,0 +1,67 @@
+{
+"Entity": "Local Student Identifier",
+"Definition": "<p>Identifier assigned to a student by a school or other organisation with limited scope.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/LocalId"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Lists an 'other' identifier associated with the entity."
+  }
+],
+"OtherStandards": [
+  {
+    "Standard": "IMS One Roster",
+    "Link": [
+      "https://www.imsglobal.org/sites/default/files/spec/oneroster/v1p2/rostering-informationmodel/OneRosterv1p2RosteringService_InfoModelv1p0.html#DataAttribute_User_userIds"
+    ],
+    "Path": [
+      "/User/userIds",
+      "/Student/userIds",
+      "/Teacher/userIds"
+    ],
+    "Definition": "middleName: The set of middle names. If more than one middle name is needed sepaThe set of external user identifiers that should be used for this user, if for some reason the sourcedId cannot be used. This might be an active directory id, an LTI id, or some other machine-readable identifier that is used for this person."
+  },
+  {
+    "Standard": "IMS LTI",
+    "Link": ["https://www.imsglobal.org/spec/lti/v1p3/#lti-user-variables"],
+    "Path": ["User.id"],
+    "Definition": "",
+    "Commentary": "user.id message property value; this may not be their real ID if they are masquerading as another user. These User variables represent the user who is the subject of the message."
+  },
+  {
+    "Standard": "Google Classroom",
+    "Link": ["https://developers.google.com/classroom/reference/rest/v1/userProfiles"],
+    "Path": ["UserProfile.id"],
+    "Definition": "Identifier of the user.",
+    "Commentary": "Read-only."
+  }  
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/LocalId"
+    ],
+    "Commentary": "The student id assigned by and used by local school administrative system. Ideally a persistent Local Student Identifier from source system. Assumed this will be local to each school Student Information System."
+  }
+],
+"Metadata": {
+"Identifier": "003021",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+  "Student Identifier"
+],
+"CrossrefEntities": [
+]
+}
+}
+

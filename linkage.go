@@ -171,7 +171,7 @@ func Link2JSON(linkCol []string, path string) (out string, err error) {
 		// fmt.Println()
 
 		if strings.Contains(k, ".") {
-			k = strings.ReplaceAll(k, ".", "^DOT")
+			k = strings.ReplaceAll(k, ".", "[dot]")
 		}
 
 		out, err = sjson.Set(out, k, v)
@@ -179,5 +179,5 @@ func Link2JSON(linkCol []string, path string) (out string, err error) {
 	}
 
 	return out, nil
-	// return strings.ReplaceAll(out, "^DOT", "."), nil
+	// return strings.ReplaceAll(out, "[dot]", "."), nil
 }

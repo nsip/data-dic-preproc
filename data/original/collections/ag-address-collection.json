@@ -1,0 +1,13 @@
+{
+"Entity": "Australian Government Address Collection",
+"Definition": "<p>Annual data collection exercise for Australian Commonwealth government to gather information about the residential address and statuses for students in non-government schools.</p>",
+"URL": [
+  "https://schools.education.gov.au/SchoolsHub/articlehelp/?subjectid=c8ab9cba-04fc-e811-9158-02720401ef44",
+  "http://specification.sifassociation.org/Implementation/AU/3.4.9/AustralianGovernmentCollections.html#obj:StudentAttendanceCollection"
+  ],
+"Metadata": {
+"Identifier": "00104",
+"Type": "Collection"
+}
+}
+

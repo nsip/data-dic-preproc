@@ -1,0 +1,10 @@
+{
+"Entity": "Identifier",
+"Definition": "<p>The identifier of an entity.</p> <p>Identifiers are typically intended to be unique and persistent. The identifier string given for an identifier is typically unique among identifiers of its type, but may not be unique globally; the type of identifier typically needs to be supplied to make it truly unique.</p>",
+"Metadata": {
+"Identifier": "0008",
+"Type": "Abstract Element",
+"DefaultParent": [],
+"Superclass": []
+}
+}

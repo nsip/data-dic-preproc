@@ -1,0 +1,13 @@
+{
+"Entity": "Australian Government Financial Questionnaire Collection",
+"Definition": "<p>Annual data collection exercise for Australian Commonwealth government to gather information about the income and expenditure of non-government schools.</p>",
+"URL": [
+  "https://schools.education.gov.au/SchoolsHub/articlehelp/?subjectid=949338ca-0a5d-e911-8105-023171a33a53",
+  "http://specification.sifassociation.org/Implementation/AU/3.4.9/AustralianGovernmentCollections.html#obj:FinancialQuestionnaireCollection"
+  ],
+"Metadata": {
+"Identifier": "00101",
+"Type": "Collection"
+}
+}
+

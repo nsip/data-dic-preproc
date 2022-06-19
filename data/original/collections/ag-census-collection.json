@@ -1,0 +1,13 @@
+{
+"Entity": "Australian Government Census Collection",
+"Definition": "<p>Annual data collection exercise for Australian Commonwealth government to gather information about the composition of staff and student in non-government schools.</p>",
+"URL": [
+  "https://schools.education.gov.au/SchoolsHub/articlehelp/?subjectid=79c04307-0ffc-e811-9158-02720401ef44",
+  "http://specification.sifassociation.org/Implementation/AU/3.4.9/AustralianGovernmentCollections.html#obj:CensusCollection"
+  ],
+"Metadata": {
+"Identifier": "00102",
+"Type": "Collection"
+}
+}
+

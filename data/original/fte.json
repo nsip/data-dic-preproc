@@ -1,0 +1,41 @@
+{
+"Entity": "Full-time Equivalent for Student",
+"Definition": "<p>Proportion of enrollment for a student.</p>",
+"SIF": [
+  {
+    "XPath": [
+      "/StudentPersonal/MostRecent/FTE",
+      "/StudentSchoolEnrollment/FTE"
+    ],
+    "Datestamp": "Latest version: 3.4.9, 2021-11-30",
+    "Definition": "Full-time equivalent numeric value of the student's course load during this enrollment, expressed in decimal form, where 1.00 represents a full-time enrollment."
+  }
+],
+"OtherStandards": [
+],
+"LegalDefinitions": [
+],
+"Collections": [
+  {
+    "Name": "NAPLAN Student Registration",
+    "Description": "Student", 
+    "Standard": "SIF-AU",
+    "Elements": [
+      "/StudentPersonal/MostRecent/FTE"
+    ],
+    "Commentary": "Full-time equivalent numeric value of the student's course load during this enrolment, expressed in decimal form, where 1.00 represents a full-time enrolment."
+  }
+],
+"Metadata": {
+"Identifier": "003032",
+"Type": "Element",
+"DefaultParent": [
+  "Student"
+],
+"Superclass": [
+],
+"CrossrefEntities": [
+]
+}
+}
+
