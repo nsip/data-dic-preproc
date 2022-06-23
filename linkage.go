@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 
 	. "github.com/digisan/go-generics/v2"
+	fd "github.com/digisan/gotk/filedir"
 	lk "github.com/digisan/logkit"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
@@ -180,4 +182,13 @@ func Link2JSON(linkCol []string, path string) (out string, err error) {
 
 	return out, nil
 	// return strings.ReplaceAll(out, "[dot]", "."), nil
+}
+
+func DumpClassLinkage(idir, ofname string) {
+	files, _, err := fd.WalkFileDir(idir, false)
+	lk.FailOnErr("%v", err)
+	linkCol := LinkEntities(files...)
+	js, err := Link2JSON(linkCol, "")
+	lk.FailOnErr("%v", err)
+	lk.FailOnErr("%v", os.WriteFile(filepath.Join(idir, ofname), []byte(js), os.ModePerm))
 }

@@ -2,8 +2,6 @@ package main
 
 import (
 	"flag"
-	"os"
-	"path/filepath"
 
 	// . "github.com/digisan/go-generics/v2"
 	fd "github.com/digisan/gotk/filedir"
@@ -105,37 +103,30 @@ func main() {
 		*dirInColPtr: *dirErrColPtr,
 	}
 
-	for _, dir := range []string{*dirInEntPtr, *dirInColPtr} {
+	gio.MustCreateDirs(*dirOutEntPtr, *dirOutColPtr, *dirErrEntPtr, *dirErrColPtr)
+
+	for I, dir := range []string{*dirInEntPtr, *dirInColPtr} {
 
 		out := mInOut[dir]       // "out" is final output directory for ingestion
 		errfolder := mInErr[dir] // "err" is for incorrect format json dump into
 
-		lk.FailOnErr("%v", os.RemoveAll(out))
-		lk.FailOnErr("%v", os.RemoveAll(errfolder))
+		lk.FailOnErr("%v", fd.RmFilesIn(out, false, false))
+		lk.FailOnErr("%v", fd.RmFilesIn(errfolder, false, false))
 
 		Preproc(dir, out, errfolder)
 
 		/////////////////////////////////////////////////////////////////////
 
-		files, _, err := fd.WalkFileDir(out, false)
-		lk.FailOnErr("%v", err)
-
-		linkCol := LinkEntities(files...)
-
-		js, err := Link2JSON(linkCol, "")
-		lk.FailOnErr("%v", err)
-
-		lk.FailOnErr("%v", os.WriteFile(filepath.Join(out, "class-link.json"), []byte(js), os.ModePerm))
+		DumpClassLinkage(out, "class-link.json")
 
 		/////////////////////////////////////////////////////////////////////
 
-		osdir := filepath.Join(out, "path_val")
-		gio.MustCreateDir(osdir)
-		fpaths, _, err := fd.WalkFileDir(out, false)
-		lk.FailOnErr("%v", err)
-		for entity, js := range GenEntityPathVal(fpaths...) {
-			lk.FailOnErr("%v", os.WriteFile(filepath.Join(osdir, entity+".json"), []byte(js), os.ModePerm))
-		}
+		DumpPathValue(out, "path_val")
 
+		/////////////////////////////////////////////////////////////////////
+
+		if I == 0 {
+			DumpCollection(out, "collection-entities.json")
+		}
 	}
 }
