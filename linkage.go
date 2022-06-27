@@ -151,6 +151,38 @@ func TrimEntityPaths(mEntityPaths map[string][]string) map[string][]string {
 	return mEntityPaths
 }
 
+type Node struct {
+	Branch   string
+	Children []string
+}
+
+func CleanUpEntityPaths(mEntityPaths map[string][]string) map[string]Node {
+	m := make(map[string]Node)
+	for entity, paths := range mEntityPaths {
+		// one node
+		node := Node{}
+		for _, path := range paths {
+			ss := strings.Split(path, "--")
+			for i, s := range ss {
+				if s == entity {
+					if i == len(ss)-1 {
+						node.Branch = path
+						node.Children = []string{}
+					} else {
+						node.Branch = strings.Join(ss[:i+1], "--")
+						// child := strings.ReplaceAll(ss[i+1], ".", "[dot]")
+						child := ss[i+1]
+						node.Children = append(node.Children, child)
+					}
+				}
+			}
+		}
+		node.Children = Settify(node.Children...)
+		m[entity] = node
+	}
+	return m
+}
+
 func Link2JSON(linkCol []string, path string) (out string, err error) {
 
 	mEntityPathsCol := []map[string]string{}
@@ -166,22 +198,40 @@ func Link2JSON(linkCol []string, path string) (out string, err error) {
 
 	mEntityPaths := MapMerge(mEntityPathsCol...)
 
-	mEntityPaths = TrimEntityPaths(mEntityPaths)
+	// {
+	// 	// only keep value as tree branch list to terminate at current 'key' node.
+	// 	mEntityPaths = TrimEntityPaths(mEntityPaths)
 
-	for k, v := range mEntityPaths {
-		// fmt.Println(k, v)
-		// fmt.Println()
+	// 	for k, v := range mEntityPaths {
+	// 		// fmt.Println(k, v)
+	// 		// fmt.Println()
 
-		if strings.Contains(k, ".") {
-			k = strings.ReplaceAll(k, ".", "[dot]")
+	// 		if strings.Contains(k, ".") {
+	// 			k = strings.ReplaceAll(k, ".", "[dot]")
+	// 		}
+
+	// 		out, err = sjson.Set(out, k, v)
+	// 		lk.FailOnErr("%v", err)
+	// 	}
+	// }
+
+	{
+		mEntityNode := CleanUpEntityPaths(mEntityPaths)
+
+		for entity, node := range mEntityNode {
+			fmt.Println(entity, node)
+			fmt.Println()
+
+			if strings.Contains(entity, ".") {
+				entity = strings.ReplaceAll(entity, ".", "[dot]")
+			}
+
+			out, err = sjson.Set(out, entity, node)
+			lk.FailOnErr("%v", err)
 		}
-
-		out, err = sjson.Set(out, k, v)
-		lk.FailOnErr("%v", err)
 	}
 
-	return out, nil
-	// return strings.ReplaceAll(out, "[dot]", "."), nil
+	return out, nil // change "." to "[dot]" from each key, otherwise, mongodb stores unexpected...
 }
 
 func DumpClassLinkage(idir, ofname string) {
