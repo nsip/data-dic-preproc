@@ -133,6 +133,8 @@ func init() {
 func main() {
 
 	var (
+		procOnlyPtr = flag.Bool("po", false, "skip 'rename', only 'process'")
+
 		// rename
 		dirOriEntPtr = flag.String("oed", "./data/original", "original entities json data directory")
 		dirOriColPtr = flag.String("ocd", "./data/original/collections", "original collections json data directory")
@@ -149,51 +151,59 @@ func main() {
 
 	flag.Parse()
 
-	//////////////////////////////////////////////////////////////
+	if !*procOnlyPtr {
 
-	dirOriEnt, dirRnEnt := *dirOriEntPtr, *dirRnEntPtr
+		//////////////////////////////////////////////////////////////
 
-	gio.MustCreateDir(dirRnEnt)
+		dirOriEnt, dirRnEnt := *dirOriEntPtr, *dirRnEntPtr
 
-	// clear destination dir for putting renamed file
-	lk.FailOnErr("%v", fd.RmFilesIn(dirRnEnt, false, true, "json"))
+		gio.MustCreateDir(dirRnEnt)
 
-	// make sure each file's name is its entity value
-	FixFileName(dirOriEnt, dirRnEnt)
+		// clear destination dir for putting renamed file
+		lk.FailOnErr("%v", fd.RmFilesIn(dirRnEnt, false, true, "json"))
 
-	//////////////////////////////////////////////////////////////
+		// make sure each file's name is its entity value
+		FixFileName(dirOriEnt, dirRnEnt)
 
-	dirOriCol, dirRnCol := *dirOriColPtr, *dirRnColPtr
+		//////////////////////////////////////////////////////////////
 
-	gio.MustCreateDir(dirRnCol)
+		dirOriCol, dirRnCol := *dirOriColPtr, *dirRnColPtr
 
-	// clear destination dir for putting renamed file
-	lk.FailOnErr("%v", fd.RmFilesIn(dirRnCol, false, true, "json"))
+		gio.MustCreateDir(dirRnCol)
 
-	// make sure each file's name is its entity value
-	FixFileName(dirOriCol, dirRnCol)
+		// clear destination dir for putting renamed file
+		lk.FailOnErr("%v", fd.RmFilesIn(dirRnCol, false, true, "json"))
 
-	/////////////////////////////
+		// make sure each file's name is its entity value
+		FixFileName(dirOriCol, dirRnCol)
 
-	mChk := map[string][]string{
-		dirRnEnt: {"Element", "Object", "Abstract Element"},
-		dirRnCol: {"Collection"},
-	}
+		/////////////////////////////
 
-	for _, dir := range []string{dirRnEnt, dirRnCol} {
-		fs, err := os.ReadDir(dir)
-		lk.FailOnErr("%v", err)
-		for _, f := range fs {
-			if fname := f.Name(); strings.HasSuffix(fname, ".json") {
-				fpath := filepath.Join(dir, fname)
-				data, err := os.ReadFile(fpath)
-				lk.FailOnErr("%v", err)
-				lk.WarnOnErrWhen(NotIn(gjson.Get(string(data), "Metadata.Type").String(), mChk[dir]...), "%v@%s", errors.New("ERROR TYPE"), fpath)
+		mChk := map[string][]string{
+			dirRnEnt: {"Element", "Object", "Abstract Element"},
+			dirRnCol: {"Collection"},
+		}
+
+		for _, dir := range []string{dirRnEnt, dirRnCol} {
+			fs, err := os.ReadDir(dir)
+			lk.FailOnErr("%v", err)
+			for _, f := range fs {
+				if fname := f.Name(); strings.HasSuffix(fname, ".json") {
+					fpath := filepath.Join(dir, fname)
+					data, err := os.ReadFile(fpath)
+					lk.FailOnErr("%v", err)
+					lk.WarnOnErrWhen(NotIn(gjson.Get(string(data), "Metadata.Type").String(), mChk[dir]...), "%v@%s", errors.New("ERROR TYPE"), fpath)
+				}
 			}
 		}
+
 	}
 
 	// ------------------------------------------------------------------------------------- //
+
+	if !fd.DirExists(*dirRnEntPtr) || !fd.DirExists(*dirRnColPtr) {
+		lk.FailOnErr("%v", errors.New("Input 'Renamed' Dirs are NOT existing for Processing"))
+	}
 
 	mInOut := map[string]string{
 		*dirInEntPtr: *dirOutEntPtr,
