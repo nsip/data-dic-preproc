@@ -133,7 +133,7 @@ func init() {
 func main() {
 
 	var (
-		procOnlyPtr = flag.Bool("po", false, "skip 'rename', only 'process'")
+		wholePtr = flag.Bool("whole", false, "true: for whole process, including 'rename'; otherwise only 'process'")
 
 		// rename
 		dirOriEntPtr = flag.String("oed", "./data/original", "original entities json data directory")
@@ -151,7 +151,7 @@ func main() {
 
 	flag.Parse()
 
-	if !*procOnlyPtr {
+	if *wholePtr {
 
 		//////////////////////////////////////////////////////////////
 
