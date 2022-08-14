@@ -203,8 +203,8 @@ func Link2JSON(linkCol []string, path string) (out string, err error) {
 	// 	mEntityPaths = TrimEntityPaths(mEntityPaths)
 
 	// 	for k, v := range mEntityPaths {
-	// 		// fmt.Println(k, v)
-	// 		// fmt.Println()
+	// 		fmt.Println(k, v)
+	// 		fmt.Println()
 
 	// 		if strings.Contains(k, ".") {
 	// 			k = strings.ReplaceAll(k, ".", "[dot]")
@@ -219,8 +219,8 @@ func Link2JSON(linkCol []string, path string) (out string, err error) {
 		mEntityNode := CleanUpEntityPaths(mEntityPaths)
 
 		for entity, node := range mEntityNode {
-			fmt.Println(entity, node)
-			fmt.Println()
+			// fmt.Println(entity, node)
+			// fmt.Println()
 
 			if strings.Contains(entity, ".") {
 				entity = strings.ReplaceAll(entity, ".", "[dot]")
